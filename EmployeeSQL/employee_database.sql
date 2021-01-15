@@ -94,7 +94,16 @@ SELECT d.dept_no,
 	dm.emp_no,
 	e.last_name,
 	e.first_name
-FROM department d
+FROM departments d
 JOIN dept_manager dm ON d.dept_no = dm.dept_no
-	
-	
+JOIN employees e ON dm.emp_no = e.emp_no;
+
+SELECT e.emp_no,
+	e.last_name,
+	e.first_name,
+	d.dept_name
+FROM employees e
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no;
+
+SELECT 
