@@ -132,4 +132,5 @@ WHERE d.dept_name = 'Sales' OR d.dept_name = 'Development';
 
 SELECT last_name, COUNT(*)
 FROM employees
-GROUP BY last_name;
+GROUP BY last_name
+ORDER BY 2 DESC;
