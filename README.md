@@ -1,6 +1,7 @@
-# SQL-Challenge
+# sql-employee-database
 
--- Employee Database Table
+### Employee Database Table
+```
 CREATE TABLE "departments" (
     "dept_no" VARCHAR(50)   NOT NULL,
     "dept_name" VARCHAR(50)   ,
@@ -71,10 +72,10 @@ REFERENCES "titles" ("title_id");
 
 ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "employees" ("emp_no");
-
--- Database queries
-
--- Employee details
+```
+### Database queries
+#### Employee details
+```
 SELECT e.emp_no,
 	e.last_name,
 	e.first_name,
@@ -82,16 +83,20 @@ SELECT e.emp_no,
 	s.salary
 FROM employees e
 JOIN salaries s ON e.emp_no = s.emp_no;
+```
 
--- Employees hired in 1986	
+#### Employees hired in 1986
+```
 SELECT first_name,
 	last_name,
 	hire_date
 FROM employees
 WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31'
 ORDER BY hire_date;
+```
 
 -- Department managers
+```
 SELECT d.dept_no,
 	d.dept_name,
 	dm.emp_no,
@@ -100,8 +105,10 @@ SELECT d.dept_no,
 FROM departments d
 JOIN dept_manager dm ON d.dept_no = dm.dept_no
 JOIN employees e ON dm.emp_no = e.emp_no;
+```
 
--- Department employees
+#### Department employees
+```
 SELECT e.emp_no,
 	e.last_name,
 	e.first_name,
@@ -109,15 +116,19 @@ SELECT e.emp_no,
 FROM employees e
 JOIN dept_emp de ON e.emp_no = de.emp_no
 JOIN departments d ON de.dept_no = d.dept_no;
+```
 
--- Employees named 'Hercules B'
+#### Employees named 'Hercules B'
+```
 SELECT first_name,
 	last_name,
 	sex
 FROM employees
 WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
+```
 
--- Sales department employees
+#### Sales department employees
+```
 SELECT e.emp_no,
 	e.last_name,
 	e.first_name,
@@ -126,8 +137,10 @@ FROM employees e
 JOIN dept_emp de ON e.emp_no = de.emp_no
 JOIN departments d ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales';
+```
 
--- Sales and development departments employees
+#### Sales and development departments employees
+```
 SELECT e.emp_no,
 	e.last_name,
 	e.first_name,
@@ -136,9 +149,12 @@ FROM employees e
 JOIN dept_emp de ON e.emp_no = de.emp_no
 JOIN departments d ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales' OR d.dept_name = 'Development';
+```
 
--- Frequency count of employee last names
+#### Frequency count of employee last names
+```
 SELECT last_name, COUNT(*)
 FROM employees
 GROUP BY last_name
 ORDER BY 2 DESC;
+```
