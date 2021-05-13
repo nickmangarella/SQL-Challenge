@@ -1,7 +1,7 @@
 # sql-employee-database
 
 ### Description
-First, create an Entity Relationship Diagram from a collection of csvs of a company's employee data. From there use PostgreSQL to create an employee database table and run some queries. Then connect to that database with SQLAlchemy's create_engine() function and plot employee salary data with Pandas, and MatPlotLib.
+First, created an Entity Relationship Diagram from a collection of csvs of a company's employee data. From there used pgAdmin to create an employee database table and run queries. Then connected to the database with SQLAlchemy's create_engine() function and plotted employee salary data with Pandas, and MatPlotLib.
 
 ### employee_db_erd
 ![alt text](https://github.com/nickmangarella/sql-employee-database/blob/master/EmployeeSQL/employee_db_erd.png)
